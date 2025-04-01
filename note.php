@@ -40,27 +40,29 @@ $notas = $conn->query("SELECT * FROM notas");
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            background-color: #f4f4f4;
+            background-color: #e3f2fd;
+            color: #333;
         }
         h1 {
             text-align: center;
+            color: #1565c0;
         }
         form {
-            background: white;
+            background: #ffffff;
             padding: 20px;
             margin-bottom: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
         input, textarea {
             width: 100%;
             padding: 10px;
             margin: 5px 0;
-            border: 1px solid #ddd;
+            border: 1px solid #90caf9;
             border-radius: 5px;
         }
         button {
-            background: #28a745;
+            background: #1976d2;
             color: white;
             border: none;
             padding: 10px 15px;
@@ -68,23 +70,26 @@ $notas = $conn->query("SELECT * FROM notas");
             border-radius: 5px;
         }
         button:hover {
-            background: #218838;
+            background: #1565c0;
         }
         ul {
             list-style: none;
             padding: 0;
         }
         li {
-            background: white;
+            background: #ffffff;
             margin: 10px 0;
             padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
         a {
-            color: red;
+            color: #d32f2f;
             text-decoration: none;
             font-weight: bold;
+        }
+        a:hover {
+            color: #b71c1c;
         }
     </style>
 </head>
