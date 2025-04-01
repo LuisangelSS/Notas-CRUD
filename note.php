@@ -16,6 +16,13 @@ if (isset($_POST['crear'])) {
     $contenido = $_POST['contenido'];
     $conn->query("INSERT INTO notas (titulo, contenido) VALUES ('$titulo', '$contenido')");
 }
+// Actualizar nota
+if (isset($_POST['actualizar'])) {
+    $id = $_POST['id'];
+    $titulo = $_POST['titulo'];
+    $contenido = $_POST['contenido'];
+    $conn->query("UPDATE notas SET titulo='$titulo', contenido='$contenido' WHERE id=$id");
+}
 // Obtener todas las notas
 $notas = $conn->query("SELECT * FROM notas");
 ?>
@@ -92,6 +99,7 @@ $notas = $conn->query("SELECT * FROM notas");
                     <input type="hidden" name="id" value="<?php echo $nota['id']; ?>">
                     <input type="text" name="titulo" value="<?php echo $nota['titulo']; ?>" required>
                     <textarea name="contenido" required><?php echo $nota['contenido']; ?></textarea>
+                    <button type="submit" name="actualizar">Actualizar</button>
                 </form>
             </li>
         <?php endwhile; ?>
