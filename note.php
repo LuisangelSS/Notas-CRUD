@@ -10,7 +10,12 @@ $conn = new mysqli($host, $user, $password, $database);
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
-
+// Crear nota
+if (isset($_POST['crear'])) {
+    $titulo = $_POST['titulo'];
+    $contenido = $_POST['contenido'];
+    $conn->query("INSERT INTO notas (titulo, contenido) VALUES ('$titulo', '$contenido')");
+}
 // Obtener todas las notas
 $notas = $conn->query("SELECT * FROM notas");
 ?>
@@ -76,6 +81,7 @@ $notas = $conn->query("SELECT * FROM notas");
     <form method="POST">
         <input type="text" name="titulo" placeholder="Título" required>
         <textarea name="contenido" placeholder="Contenido" required></textarea>
+        <button type="submit" name="crear">Agregar</button>
     </form>
     <ul>
         <?php while ($nota = $notas->fetch_assoc()): ?>
