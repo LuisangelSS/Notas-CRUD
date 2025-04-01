@@ -23,6 +23,11 @@ if (isset($_POST['actualizar'])) {
     $contenido = $_POST['contenido'];
     $conn->query("UPDATE notas SET titulo='$titulo', contenido='$contenido' WHERE id=$id");
 }
+// Eliminar nota
+if (isset($_GET['eliminar'])) {
+    $id = $_GET['eliminar'];
+    $conn->query("DELETE FROM notas WHERE id=$id");
+}
 // Obtener todas las notas
 $notas = $conn->query("SELECT * FROM notas");
 ?>
@@ -95,6 +100,7 @@ $notas = $conn->query("SELECT * FROM notas");
             <li>
                 <strong><?php echo $nota['titulo']; ?></strong>
                 <p><?php echo $nota['contenido']; ?></p>
+                <a href="?eliminar=<?php echo $nota['id']; ?>">Eliminar</a>
                 <form method="POST">
                     <input type="hidden" name="id" value="<?php echo $nota['id']; ?>">
                     <input type="text" name="titulo" value="<?php echo $nota['titulo']; ?>" required>
